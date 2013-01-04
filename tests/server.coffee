@@ -28,6 +28,7 @@ describe "rpc call", ->
   }
 
   server.run({
+    version: '123'
     jsonrpc: jsonrpc
     endpoint: endpoint
     port: port
@@ -61,6 +62,23 @@ describe "rpc call", ->
           params: [23, 42]
           id: "2"
         }]
+        done()
+
+
+
+    it "should return version nubmer", (done) ->
+      request
+        url: "http://localhost:#{port}#{endpoint}"
+        method: 'POST'
+        json:
+          jsonrpc: "2.0"
+          method: 'version'
+          id: "2"
+      , (err, response, data) ->
+        response.statusCode.should.eql 200
+        response.headers['content-type'].should.eql 'application/json; charset=utf-8'
+        calls.answer.should.eql []
+        data.should.eql { jsonrpc: '2.0', result: '123', id: '2' }
         done()
 
 
@@ -175,4 +193,27 @@ describe "rpc call", ->
         response.statusCode.should.eql 200
         response.headers['content-type'].should.eql 'text/javascript'
         data.should.eql '[object Object]'
+        done()
+
+
+
+    it "invoking non-existing function using POST", (done) ->
+      request
+        url: "http://localhost:#{port}#{endpoint}unknown"
+        method: 'POST'
+      , (err, response, data) ->
+        response.statusCode.should.eql 404
+        data.should.eql 'Invalid function.'
+        done()
+
+
+
+    it "replies with the version number when the function 'version' is invoked", (done) ->
+      request
+        url: "http://localhost:#{port}#{endpoint}version?callback=whatever"
+        method: 'GET'
+      , (err, response, data) ->
+        response.statusCode.should.eql 200
+        response.headers['content-type'].should.eql 'text/javascript'
+        data.should.eql 'whatever({"jsonrpc":"2.0","result":"123","id":"whatever"})'
         done()
