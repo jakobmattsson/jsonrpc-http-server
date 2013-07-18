@@ -55,7 +55,7 @@ describe "rpc call", ->
         body: '{"jsonrpc": "2.0", "method": "subtract", "params": [23, 42], "id": "2" }'
       , (err, response, data) ->
         response.statusCode.should.eql 200
-        response.headers['content-type'].should.eql 'application/json; charset=utf-8'
+        response.headers['content-type'].should.eql 'application/json'
         calls.answer.should.eql [{
           jsonrpc: "2.0"
           method: 'subtract'
@@ -76,7 +76,7 @@ describe "rpc call", ->
           id: "2"
       , (err, response, data) ->
         response.statusCode.should.eql 200
-        response.headers['content-type'].should.eql 'application/json; charset=utf-8'
+        response.headers['content-type'].should.eql 'application/json'
         calls.answer.should.eql []
         data.should.eql { jsonrpc: '2.0', result: '123', id: '2' }
         done()
