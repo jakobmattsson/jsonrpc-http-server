@@ -1,7 +1,8 @@
 should = require 'should'
 _ = require 'underscore'
 request = require 'request'
-server = require('./coverage').require('server')
+jscov = require 'jscov'
+server = require jscov.cover('..', 'src', 'server')
 
 describe "rpc call", ->
 
