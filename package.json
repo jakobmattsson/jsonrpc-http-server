@@ -8,6 +8,10 @@
     "introspect": ">= 0.0.2 < 0.1",
     "express": ">= 3.3.4 < 4"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jakobmattsson/jsonrpc-http-server.git"
+  },
   "devDependencies": {
     "underscore": ">= 1.4.3 < 2",
     "should": ">= 1.2.1 < 2",
