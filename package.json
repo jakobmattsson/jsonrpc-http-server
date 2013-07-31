@@ -4,10 +4,10 @@
   "version": "0.2.1",
   "main": "./lib/server.js",
   "dependencies": {
-    "underscore": ">= 1.4.0 < 2",
-    "rester-tools": ">= 0.6.0 < 0.7",
-    "introspect": ">= 0.0.2 < 0.1",
-    "express": ">= 3.0.0 < 4"
+    "underscore": "1.4.0",
+    "rester-tools": "0.6.0",
+    "introspect": "0.0.2",
+    "express": "3.0.0"
   },
   "repository": {
     "type": "git",
