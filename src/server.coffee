@@ -1,3 +1,4 @@
+_ = require 'underscore'
 express = require 'express'
 introspect = require 'introspect'
 resterTools = require 'rester-tools'
@@ -29,7 +30,9 @@ exports.run = ({ endpoint, port, api, jsonrpc, version }) ->
         res.send("#{req.query.callback}(#{str})")
         return
 
-      jsonrpc.answerJSONP req.params.method, req.query, (err, data) ->
+      trimmedQuery = _.omit(req.query, '__proto__')
+
+      jsonrpc.answerJSONP req.params.method, trimmedQuery, (err, data) ->
         res.send(if err? then 400 else (data ? '').toString())
 
   app.all '*', (req, res) ->
