@@ -1,3 +1,4 @@
+http = require 'http'
 _ = require 'underscore'
 express = require 'express'
 introspect = require 'introspect'
@@ -39,6 +40,6 @@ exports.run = ({ endpoint, port, api, jsonrpc, version }) ->
     res.header('content-type', 'text/plain')
     res.send('Invalid function.', 404)
 
-  app.listen(port)
-
-  app
+  server = http.createServer(app)
+  server.listen(port)
+  server
