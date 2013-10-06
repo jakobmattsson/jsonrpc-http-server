@@ -4,22 +4,22 @@
   "version": "0.2.3",
   "main": "./lib/server.js",
   "dependencies": {
-    "underscore": ">= 1.4.0 < 2",
-    "rester-tools": ">= 0.6.0 < 0.7",
-    "introspect": ">= 0.0.2 < 0.1",
-    "express": ">= 3.0.0 < 4"
+    "underscore": "^1.4.0",
+    "rester-tools": "^0.6.0",
+    "introspect": "^0.0.2",
+    "express": "^3.0.0"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/jakobmattsson/jsonrpc-http-server.git"
   },
   "devDependencies": {
-    "should": ">= 1.2.1 < 2",
-    "jscov": ">= 0.5.4 < 0.6",
-    "mocha-term-cov-reporter": ">= 0.1.0 < 0.2",
-    "coffee-script": ">= 1.6.0 < 2",
-    "mocha": ">= 1.7.4 < 2",
-    "request": ">= 2.12.0 < 3"
+    "should": "^1.2.1",
+    "jscov": "^0.5.4",
+    "mocha-term-cov-reporter": "^0.1.0",
+    "coffee-script": "^1.6.3",
+    "mocha": "^1.7.4",
+    "request": "^2.12.0"
   },
   "engines": {
     "node": ">= 0.8 < 0.12"
